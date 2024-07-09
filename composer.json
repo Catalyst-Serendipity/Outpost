@@ -1,0 +1,19 @@
+{
+    "name": "nicholass003/outpost",
+    "description": "A Outpost plugin for PocketMine-MP.",
+    "type": "project",
+    "require": {
+        "muqsit/invmenu": "^4.6.5",
+        "pocketmine/pocketmine-mp": "^5.0.0",
+        "paroxity/commando": "^3.2.1"
+    },
+    "require-dev": {
+        "sof3/pharynx": "^0.3.6"
+    },
+    "autoload": {
+        "classmap": ["src"]
+    },
+    "scripts": {
+        "build": "php -dphar.readonly=0 vendor/bin/pharynx -i=. -c -p=Outpost.phar"
+    }
+}

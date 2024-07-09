@@ -1,0 +1,7 @@
+# Outpost Configuration #
+# set capturing time in seconds
+capture-time: 30
+# Outpost Information
+capture-text: Free
+capture-floatingtext: Capturing in {time}s
+reward-floatingtext: Reward drop in {time}s
