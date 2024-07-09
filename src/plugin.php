@@ -21,6 +21,7 @@ final class Outpost extends PluginBase{
 	}
 
 	protected function onEnable() : void{
+		self::setInstance($this);
 		$this->outpost = new Config($this->getDataFolder() . "outposts.yml", Config::YAML);
 
 		$this->registerCommands($this->getServer()->getCommandMap());

@@ -3,3 +3,10 @@ api: 5.3.0
 version: 0.1.0
 main: nicholass003\outpost\Outpost
 author: nicholass003
+permissions:
+  outpost.command:
+    default: op
+  outpost.command.list:
+    default: op
+  outpost.command.set:
+    default: op
