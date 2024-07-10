@@ -9,6 +9,7 @@ use nicholass003\outpost\area\AreaManager;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
+use function count;
 
 class ListOutpostSubCommand extends BaseSubCommand{
 
@@ -19,6 +20,11 @@ class ListOutpostSubCommand extends BaseSubCommand{
 	public function onRun(CommandSender $sender, string $aliasUsed, array $args) : void{
 		if(!$sender instanceof Player){
 			$sender->sendMessage(TextFormat::RED . "You must be logged in to use this command.");
+			return;
+		}
+
+		if(count(AreaManager::getInstance()->getAll()) === 0){
+			$sender->sendMessage(TextFormat::RED . "No Outpost found.");
 			return;
 		}
 

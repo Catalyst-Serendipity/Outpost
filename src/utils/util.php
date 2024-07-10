@@ -28,7 +28,11 @@ class ItemsHelper{
 		return $contents;
 	}
 
-	public static function write(array $contents) : string{
+	public static function write(array $items) : string{
+		$contents = [];
+		foreach($items as $slot => $item){
+			$contents[] = $item->nbtSerialize($slot);
+		}
 		return zlib_encode((new BigEndianNbtSerializer())->write(new TreeRoot(CompoundTag::create()
 				->setTag(self::TAG_INVENTORY, new ListTag($contents, NBT::TAG_Compound)))), ZLIB_ENCODING_GZIP);
 	}

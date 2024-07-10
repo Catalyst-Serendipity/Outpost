@@ -2,6 +2,13 @@
 # set capturing time in seconds
 capture-time: 30
 # Outpost Information
-capture-text: Free
-capture-floatingtext: Capturing in {time}s
-reward-floatingtext: Reward drop in {time}s
+tip-message: "§aSuccess control the outpost!"
+broadcast-message: "§6{player} just control the outpost!"
+ft-title: "§l§4Outpost"
+ft-text: "§cCapture Time §8: §7{capture-time}\n§cCaptured By §8: §7{player}"
+ft-text-capturing: "§eCapturing by {player}"
+ft-text-idle: "§bReady to Capture"
+# The reward text is a one floating text with capture, with the condition that it will disappear if not captured
+ft-reward: "Reward drop in {reward-time}"
+# set reward time in seconds, default 300 seconds = 5 mins
+reward-time: 300

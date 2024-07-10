@@ -11,6 +11,7 @@ use nicholass003\outpost\area\AreaManager;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
+use pocketmine\world\Position;
 
 class SetOutpostSubCommand extends BaseSubCommand{
 
@@ -31,7 +32,7 @@ class SetOutpostSubCommand extends BaseSubCommand{
 			$radius = $args["radius"];
 		}
 
-		$area = new Area($sender->getPosition()->floor(), (int) $radius, $sender->getInventory()->getContents());
+		$area = new Area(Position::fromObject($sender->getPosition()->floor()->add(0.5, 1, 0.5), $sender->getWorld()), (int) $radius, $sender->getInventory()->getContents());
 		AreaManager::getInstance()->add($area);
 
 		$sender->sendMessage(TextFormat::GREEN . "Success add Area Outpost with id: " . $area->getId());

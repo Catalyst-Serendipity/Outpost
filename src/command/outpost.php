@@ -6,6 +6,7 @@ namespace nicholass003\outpost\command;
 
 use CortexPE\Commando\BaseCommand;
 use nicholass003\outpost\command\subcommand\ListOutpostSubCommand;
+use nicholass003\outpost\command\subcommand\RemoveOutpostSubCommand;
 use nicholass003\outpost\command\subcommand\SetOutpostSubCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
@@ -17,6 +18,7 @@ class OutpostCommand extends BaseCommand{
 		$this->setPermission("outpost.command");
 
 		$this->registerSubCommand(new ListOutpostSubCommand($this->plugin, "list", "Show Outpost Area List"));
+		$this->registerSubCommand(new RemoveOutpostSubCommand($this->plugin, "remove", "Remove Outpost Area"));
 		$this->registerSubCommand(new SetOutpostSubCommand($this->plugin, "set", "Set Outpost Area"));
 	}
 
@@ -26,6 +28,6 @@ class OutpostCommand extends BaseCommand{
 			return;
 		}
 
-		$sender->sendMessage(TextFormat::RED . "Usage: /{$aliasUsed} <list|set>");
+		$sender->sendMessage(TextFormat::RED . "Usage: /{$aliasUsed} <list|remove|set>");
 	}
 }

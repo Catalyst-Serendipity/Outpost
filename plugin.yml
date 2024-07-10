@@ -8,5 +8,7 @@ permissions:
     default: op
   outpost.command.list:
     default: op
+  outpost.command.remove:
+    default: op
   outpost.command.set:
     default: op
