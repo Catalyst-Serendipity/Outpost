@@ -172,7 +172,6 @@ class Area{
 	}
 
 	public function spawn() : void{
-		//TODO: spawn particle from data
 		$world = $this->position->getWorld();
 		$chunk = $world->getOrLoadChunkAtPosition($this->position);
 		if($chunk !== null){
