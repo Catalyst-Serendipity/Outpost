@@ -64,6 +64,10 @@ class Area{
 		return $this->position;
 	}
 
+	public function setPosition(Position $position) : void{
+		$this->position = $position;
+	}
+
 	public function getRadius() : float|int{
 		return $this->radius;
 	}

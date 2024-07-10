@@ -23,14 +23,21 @@ class AreaManager{
 
 	public function load() : void{
 		$config = Outpost::getInstance()->getOutpostConfig();
+		$worldManager = Server::getInstance()->getWorldManager();
 		foreach($config->getAll() as $id => $data){
 			$data = json_decode($data, true);
 			$area = new Area(Position::fromObject(
 				new Vector3((float) $data["pos"]["x"], (int) $data["pos"]["y"], (float) $data["pos"]["z"]),
-				Server::getInstance()->getWorldManager()->getWorldByName($data["world"])), (float) $data["radius"], ItemsHelper::read(base64_decode($data["rewards"], true)),
+				$worldManager->getWorldByName($data["world"])), (float) $data["radius"], ItemsHelper::read(base64_decode($data["rewards"], true)),
 				true
 			);
 			$this->areas[$id] = $area;
+			if(!$area->getPosition()->isValid()){
+				if($worldManager->loadWorld($data["world"])){
+					Outpost::getInstance()->getLogger()->notice("\"" . $data["world"] . "\" world is now Loaded.");
+					$area->setPosition(Position::fromObject($area->getPosition()->asVector3(), $worldManager->getWorldByName($data["world"])));
+				}
+			}
 			$area->setId($id);
 			$area->spawn();
 		}
