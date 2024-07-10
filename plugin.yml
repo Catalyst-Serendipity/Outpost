@@ -1,6 +1,6 @@
 name: Outpost
 api: 5.3.0
-version: 1.0.0
+version: 1.0.1
 main: nicholass003\outpost\Outpost
 author: nicholass003
 permissions:
